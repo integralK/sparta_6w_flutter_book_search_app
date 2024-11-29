@@ -73,7 +73,21 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        body: Text('HomePage'),
+        body: GridView.builder(
+          padding: EdgeInsets.all(20),
+          itemCount: 10,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            childAspectRatio: 3 / 4,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+          ),
+          itemBuilder: (context, index) {
+            // 커맨드 I로 자동완성 가능.
+            return Image.network('https://picsum.photos/200/300');
+            // Lorem Picsum 이미지 제공
+          },
+        ),
       ),
     );
   }
