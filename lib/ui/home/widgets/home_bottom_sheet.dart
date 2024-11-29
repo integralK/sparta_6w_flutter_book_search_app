@@ -29,14 +29,14 @@ class HomeBottomSheet extends StatelessWidget {
               Text(
                 'J.K.롤링',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
                   fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[700],
                 ),
               ),
               Text(
                 '새로운 분위기의 표지와 폰트 등으로 재발간된 영국판 Bloomsbury 해리포터 시리즈 탄생!',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
               ),
