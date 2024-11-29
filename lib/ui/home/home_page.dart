@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_book_search_app/ui/home/widgets/home_bottom_sheet.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -84,7 +85,24 @@ class _HomePageState extends State<HomePage> {
           ),
           itemBuilder: (context, index) {
             // 커맨드 I로 자동완성 가능.
-            return Image.network('https://picsum.photos/200/300');
+            return GestureDetector(
+              onTap: () {
+                //
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return HomeBottomSheet();
+                    /* return Container(
+                     width: double.infinity,
+                      height: 300,
+                      child: Text('data'),
+                    );  이부분은 widgets폴더이 home_bottom_sheet.dart 파일 만들어서 입력해주고 여긴 지운다. 
+                    home_bottom_sheet.dart에 만들어줬으니 여기선 return HomeBottomSheet();만 입력. */
+                  },
+                );
+              },
+              child: Image.network('https://picsum.photos/200/300'),
+            );
             // Lorem Picsum 이미지 제공
           },
         ),
