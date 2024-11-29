@@ -30,6 +30,22 @@ class _HomePageState extends State<HomePage> {
       },
       child: Scaffold(
         appBar: AppBar(
+          actions: [
+            GestureDetector(
+              onTap: () {
+                onSearch(textEditingController.text);
+              },
+              // 버튼의 터치영역은 44 디바이스 픽셀 이상으로 해줘야함!! (UX)
+              child: Container(
+                width: 50,
+                height: 50,
+                // 컨테이너에 배경색이 없으면 자녀위젯에만 터치 이벤트가 적용됨
+                color: Colors.transparent, //  투명한 색깔로 컨테이너를 설정
+                child: Icon(Icons.search),
+                // 검색 아이콘을 터치했을때 onSearch함수가 실행될 수 있게 GestureDetector로 감싸준다. Icon을 wrap with widget
+              ),
+            ),
+          ],
           // AppBar에 TextField를 추가하여 검색 기능을 구현
           title: TextField(
             maxLines: 1, // TextField 속성
