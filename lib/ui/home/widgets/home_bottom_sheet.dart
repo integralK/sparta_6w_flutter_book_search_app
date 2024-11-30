@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_book_search_app/data/model/book.dart';
 import 'package:flutter_book_search_app/ui/detail/detail_page.dart';
 
 class HomeBottomSheet extends StatelessWidget {
+  HomeBottomSheet(this.book);
+  Book book;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,7 +15,7 @@ class HomeBottomSheet extends StatelessWidget {
       child: Row(
         children: [
           Image.network(
-            'https://picsum.photos/200/300',
+            book.image,
             fit: BoxFit.cover,
           ),
           SizedBox(width: 20),
@@ -20,14 +24,16 @@ class HomeBottomSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Harry Potter and the Philosopher's Stone",
+                book.title,
+                maxLines: 2,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
               ),
               Text(
-                'J.K.롤링',
+                book.author,
+                maxLines: 2,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -35,7 +41,8 @@ class HomeBottomSheet extends StatelessWidget {
                 ),
               ),
               Text(
-                '새로운 분위기의 표지와 폰트 등으로 재발간된 영국판 Bloomsbury 해리포터 시리즈 탄생!',
+                book.description,
+                maxLines: 2,
                 style: TextStyle(
                   fontSize: 14,
                 ),
@@ -47,7 +54,7 @@ class HomeBottomSheet extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return DetailPage();
+                      return DetailPage(book);
                     }),
                   ); // 옵션 쉬프트 F 누르면 후행콤마에서 자동정렬됨
                 },
